@@ -12,6 +12,8 @@ export class ModalResgistrarUsuarioComponent implements OnInit {
   ngOnInit() {
   }
 
+editar() {
 
+}
 
 }
