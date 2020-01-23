@@ -4,7 +4,17 @@
 
 export const environment = {
   production: false,
-  url: 'http://localhost:1337'
+  url: 'http://localhost:1337',
+  firebaseConfig: {
+    apiKey: "AIzaSyAI066uVKQHdtmqS3QHyHlRJOmn80FoEhQ",
+    authDomain: "nickgi-security.firebaseapp.com",
+    databaseURL: "https://nickgi-security.firebaseio.com",
+    projectId: "nickgi-security",
+    storageBucket: "nickgi-security.appspot.com",
+    messagingSenderId: "356750891278",
+    appId: "1:356750891278:web:c89ad84a59b57796c99f5f",
+    measurementId: "G-LHKGEVJWZB"
+  }
 };
 
 /*
