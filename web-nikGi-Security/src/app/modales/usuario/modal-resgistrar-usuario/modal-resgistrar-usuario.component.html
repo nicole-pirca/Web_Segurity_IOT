@@ -1,1 +1,117 @@
-<p>modal-resgistrar-usuario works!</p>
+<h1 mat-dialog-content>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>REGISTRO</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</h1>
+<div class="form-container" style="text-align: center">
+  <form #usuarioForm="ngForm">
+    <div>
+      <label for="nombreId">
+        Nombre
+        <div [formGroup]="userForm">
+          <input id="nombreId" matInput formControlName="nombre" placeholder="Nombres">
+          <mat-error *ngIf="userForm.get('nombre').hasError('required')"></mat-error>
+        </div>
+      </label>
+    </div>
+    <br>
+    <div>
+      <label for="apellidoId">
+        Apellido
+        <div [formGroup]="userForm">
+          <input id="apellidoId"
+                 matInput formControlName="apellido" placeholder="Apellido">
+          <mat-error *ngIf="userForm.get('apellido').hasError('required')"></mat-error>
+        </div>
+      </label>
+    </div>
+    <br>
+    <div>
+      <label for="correoId">
+        Correo
+        <div [formGroup]="userForm">
+          <input id="correoId"
+                 matInput formControlName="email" placeholder="Email">
+          <mat-error *ngIf="this.userForm.invalid">{{msgValidateEmail()}}
+          </mat-error>
+        </div>
+      </label>
+    </div>
+    <br>
+    <div>
+      <label for="telefonoId">
+        Telefono
+        <div [formGroup]="userForm">
+          <input id="telefonoId"
+                 matInput formControlName="telefono" placeholder="Telefono">
+          <mat-error *ngIf="userForm.get('telefono').hasError('required')">
+          </mat-error>
+        </div>
+      </label>
+    </div>
+    <br>
+    <div>
+      <label for="passwordId">
+        Password
+        <div [formGroup]="userForm">
+          <input id="passwordId"
+                 matInput formControlName="contrasena" placeholder="Contrasena"
+                 type="password"
+                 name="password">
+          <mat-error *ngIf="userForm.get('contrasena').hasError('required')">
+          </mat-error>
+        </div>
+      </label>
+    </div>
+    <br>
+    <div>
+      <label for="confirmar">
+        Confirmar
+        <div [formGroup]="userForm">
+          <input id="confirmar"
+                 matInput formControlName="confirmar" placeholder="Confirmar"
+                 type="password"
+                 name="password">
+          <mat-error *ngIf="userForm.get('confirmar').hasError('required')">
+          </mat-error>
+        </div>
+      </label>
+    </div>
+    <br>
+
+    <div>
+      <label for="imagen">
+        Imagen
+        <div [formGroup]="userForm">
+          <div class="avatar-upload">
+            <div class="avatar-preview">
+              <div id ="imagePreview" [style.backgroundImage]="'url('+ imageUrl +')'">
+              </div>
+            </div>
+          </div>
+          <input id="imagen" type='file' formControlName="imagen" accept=".png, .jpg, .jpeg" (change)="uploadFile($event)" />
+          <mat-error *ngIf="userForm.get('imagen').hasError('required')">
+          </mat-error>
+        </div>
+      </label>
+    </div>
+
+    <div mat-dialog-actions>
+      <p-button label="Cancelar"
+                styleClass="ui-button-secondary"
+                (onClick)="close()"
+      ></p-button>
+      <p-button label="Aceptar"
+                styleClass="ui-button-success"
+                (onClick)="onSaveUser(userForm.value)"
+      ></p-button>
+    </div>
+    <webcam>
+
+    </webcam>
+  </form>
+</div>
+
+
